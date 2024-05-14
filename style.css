@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    font-family: "Oxygen", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-background: #030207;
+    --color-white: #fff;
+    --color-blue: #1474b4;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-white);
+}
+
+a {
+    color: var(--color-blue);
+}    
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.1), var(--color-background)); /* Degradê de cores usando o rgba (mexendo na transparencia do mesmo)  */
+    position: relative; 
+    min-height: 100vh; /*Altura é relativa a 100% da viewport da página*/
+}
+
+.hero__background{
+    position: absolute; /*Faz com que o elemento fique de forma absoluta na página de forma exata, normalmente fica na página completa, porém como usamos a propriedade "relative" no .hero e esse elemento está dentro dele então será absoluto em função tamanho do .hero*/
+    top: 0;
+    z-index: -10; /*Essa propriedade faz com que o elemento ficar atrás ou na frente de outro*/
+    object-fit: cover; /*Faz com que qualquer elemento da página caiba totalmente na memsma*/ 
+    width: 100%;
+    height: 100vh;
+}
+
+.hero__foreground {
+    text-align: center;
+    padding-top: 40vh; /*Medida relativa a altura definida da viewport em .hero*/
+}
+
+.hero__title {
+    font-size: 5rem;
+    font-weight: 300;
+}
+
+.hero__text {
+    padding-top: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem; /*Espaçamento entre as letras*/
+}
+
+.section {
+    overflow: hidden; /*Serve para que o atributo flow não transborde do elemento pai*/
+    text-align: center;
+    padding: 0 8rem;
+}
+
+.section__title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin: 4rem auto;
+}
+
+.section__img,
+.section__img-inline {
+    width: 100%;
+    border-radius: .5rem;
+    /* eixo x, eixo y, blur, espandão/recuo, cor*/
+    box-shadow: 0 1rem 2rem -.5rem rgba(20, 116, 180, .25);
+    object-fit: cover;
+    object-position: top;
+    max-height: 30rem;
+    position: relative;
+}
+
+.section__text,
+.section__text-inline {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin: 4rem auto;
+}
+
+.section__img-inline {
+    border-top-left-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    margin-right: 4rem;
+    margin-bottom: 2rem;
+    float: left; /*Faz com que o elemento fique flutuando ou na direita ou na esquerda da página*/
+    width: 20rem;
+    height: 25rem;
+}
+
+.section__text-inline {
+    text-align: left;
+    margin-top: 6rem;
+}
+
+.section__text-inline > p {
+    margin-top: 1.5rem;
+}
+
+#hangouts {
+    object-position: center;
+}
+
+.gallery__img {
+    border-radius: .75rem;
+    height: 16rem;
+    width: 16rem;
+    object-fit: cover;
+    transform: rotate(-2deg);
+}
+
+.gallery {
+    margin-top: 5rem;
+}
+
+.gallery__img-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.gallery__img-wrapper + .gallery__img-wrapper {
+    margin-left: 1rem;
+}
+
+.gallery__img-wrapper:nth-child(even) >.gallery__img  {
+    transform: rotate(2deg);
+}
+
+.gallery__img-wrapper::after {
+    content: "";
+    background-color: red;
+    height: 1rem;
+    width: 1rem;
+    display: block;
+    position: absolute;
+    top: 0.25rem;
+    right: 1rem;
+    border-radius: 999px;
+}
+
+.gallery__img-wrapper:nth-child(even)::after {
+    left: 1rem;
+}
+
+footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
